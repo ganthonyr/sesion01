@@ -4,7 +4,8 @@ subtitle: "Sesión 01: Introducción a R y Flujos de trabajo reproducible"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r}
+#| include: false
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
