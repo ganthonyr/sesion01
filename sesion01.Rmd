@@ -1,0 +1,19 @@
+---
+title: "Bases de R para manejo y análisis de datos"
+subtitle: "Sesión 01: Introducción a R y Flujos de trabajo reproducible"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+OBJETIVOS DE APRENDIZAJE:
+En esta primera sesión aprenderemos a...
+-Explorar las herramientas, partes y entorno de RStudio
+-Aprender a instalar y cargar paquetes con código y click y pedir ayuda
+-Conocer los operadores aritméticos
+-Conocer los tipos de datos y crear objetos
+-Crear proyectos (R projects) para flujos de trabajo reproducible
+
