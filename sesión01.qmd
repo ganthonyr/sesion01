@@ -1,6 +1,7 @@
 ---
 title: "Bases de R para manejo y análisis de datos"
 subtitle: "Sesión 01: Introducción a R y Flujos de trabajo reproducible"
+author: "Anthony Romero"
 output: html_document
 ---
 
@@ -12,7 +13,7 @@ En esta primera sesión, revisaremos algunos fundamentos de programación con R 
 En esta primera sesión aprenderemos a...
 -Explorar las herramientas, partes y entorno de RStudio (paneles, comentar líneas, chunk, etc)
 -Aprender a instalar y cargar paquetes con código/click y pedir ayuda
--Conocer los operadores aritméticos
+-Conocer los operadores aritméticos, logicos y de asignacion.
 -Conocer los tipos de datos (vector, lista, matriz, data frame) y crear objetos (operador asignación)
 -Crear proyectos (R projects) para flujos de trabajo reproducible
 -Importar/exportar bases de datos con `{rio}`
