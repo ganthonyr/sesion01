@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Bases de R para manejo y análisis de datos</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="sesión01_files/libs/clipboard/clipboard.min.js"></script>
+<script src="sesión01_files/libs/quarto-html/quarto.js"></script>
+<script src="sesión01_files/libs/quarto-html/popper.min.js"></script>
+<script src="sesión01_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="sesión01_files/libs/quarto-html/anchor.min.js"></script>
+<link href="sesión01_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="sesión01_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="sesión01_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="sesión01_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="sesión01_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Bases de R para manejo y análisis de datos</h1>
+<p class="subtitle lead">Sesión 01: Introducción a R y Flujos de trabajo reproducible</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introducción-y-recomendaciones" class="level2">
+<h2 class="anchored" data-anchor-id="introducción-y-recomendaciones">INTRODUCCIÓN Y RECOMENDACIONES:</h2>
+<p>En esta primera sesión, revisaremos algunos fundamentos de programación con R y terminaremos aprendiendo a importar y exportar datos <em>desde</em> y <em>a</em> formato dta, csv y xlsx.</p>
+<section id="objetivos-de-aprendizaje" class="level3">
+<h3 class="anchored" data-anchor-id="objetivos-de-aprendizaje">Objetivos de aprendizaje:</h3>
+<p>En esta primera sesión aprenderemos a… -Explorar las herramientas, partes y entorno de RStudio (paneles) -Aprender a instalar y cargar paquetes con código/click y pedir ayuda -Conocer los operadores aritméticos -Conocer los tipos de datos (vector, lista, matriz, data frame) y crear objetos (operador asignación) -Crear proyectos (R projects) para flujos de trabajo reproducible</p>
+</section>
+<section id="algunas-recomendaciones" class="level3">
+<h3 class="anchored" data-anchor-id="algunas-recomendaciones">Algunas recomendaciones:</h3>
+<ul>
+<li><p>Antes de empezar a escribir código, es importante conocer y reconocer los distintos paneles que nos muestra RStudio y sus utilidades:</p>
+<p><em>1. Editor de texto (script, qmd, rmd)</em> -&gt; (Arriba a la izquierda)</p>
+<p>Donde escribimos y almacenamos código, es el “word” de RStudio.</p>
+<p><em>2. Consola</em> -&gt; (Abajo a la izquierda)</p>
+<p>Donde también escribimos código, sin embargo, a diferencia del editor, este no se almacena.</p>
+<p><em>3. Enviroment</em> -&gt; (Arriba a la derecha)</p>
+<p>Donde podemos ver todos los archivos u objetos que tenemos guardado en nuestro R.</p>
+<p><em>4. Files/help, Viewer</em> -&gt; (Abajo a la izquierda)</p>
+<p>Este 4to panel contiene varias pestañas. Las dos más importantes por ahora son: El “files” donde veremos nuestros archivos (como en el explorador de archivos de nuestra computadora); y el “Help”, donde encontraremos la información sobre paquetes y/o funciones que Rstudio nos ofrece.</p></li>
+<li><p>“Renderizar el código” significa <code>crear</code> el archivo, para hacer esto, simplemente debemos <em>presionar el botón “Render” ubicado en la barra de herramientas que está justo encima del editor de texto.</em></p></li>
+<li><p>Atajos de teclado sugeridos (para microsoft):</p></li>
+</ul>
+<p>1) <code>alt + 94</code> -&gt; <code>^</code> (símbolo de potencia)</p>
+<p>2) <code>ctrl + shift + c</code> -&gt; comentar la línea o texto seleccionado</p>
+</section>
+</section>
+<section id="primera-parte-operaciones-aritméticas-con-r" class="level2">
+<h2 class="anchored" data-anchor-id="primera-parte-operaciones-aritméticas-con-r">PRIMERA PARTE: Operaciones aritméticas con R</h2>
+<section id="cómo-realizar-cálculos-aritméticos-en-r" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-realizar-cálculos-aritméticos-en-r">¿Cómo realizar cálculos aritméticos en R?</h3>
+<p>Para esto, simplemente necesitamos saber cómo llamar a los operadores aritméticos en R, revisemos la siguiente lista:</p>
+<ol type="1">
+<li><code>+</code> -&gt; Suma</li>
+<li><code>-</code> -&gt; Resta</li>
+<li><code>*</code> -&gt; Multiplicación</li>
+<li><code>/</code> -&gt; División</li>
+<li><code>sqrt()</code> -&gt; Raíz cuadrada</li>
+<li><code>^</code> -&gt; Potencia</li>
+</ol>
+<p>Ahora practiquemos con los siguientes ejercicios propuestos:</p>
+</section>
+<section id="ejercicio-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-1">Ejercicio 1:</h3>
+<p>Multiplicar 12 por 14 (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-2" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-2">Ejercicio 2:</h3>
+<p>Sume 34 más 47 (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-3" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-3">Ejercicio 3:</h3>
+<p>Divida 39304 entre 21 (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-4" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-4">Ejercicio 4:</h3>
+<p>Calcular cuánto es 34 elevado a 3 (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-5" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-5">Ejercicio 5:</h3>
+<p>Sumar 2 más 8, al resultado restar 4, luego multiplicar por 8, dividir el resultado entre 6 y elevar a la potencia 4, ¿cuál es el resultado? (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-6" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-6">Ejercicio 6:</h3>
+<p>Los pesos de Juan, Esteban y María son 84, 78 y 70kg, respectivamente. Sus tallas son 1.74, 1.82 y 1.63m, respectivamente. Calcular el IMC para cada caso (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-7" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-7">Ejercicio 7:</h3>
+<p>Se requiere administrar Paracetamol a un niño de 6 años de 20kg de peso y 1.21m de altura que presenta fiebre y malestar. Sabemos que la dosis recomendada de paracetamol es de 10mg/Kg c/6h. Calcular la dosis a administrar y el IMC (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-8" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-8">Ejercicio 8:</h3>
+<p>Se tiene una niña de 7 años y 18.5Kg de peso con infección en los oídos a quien se le indica cefexime. Si la dosis recomendada es de 8mg/Kg/dia, calcular la dosis que se debe administar (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-9" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-9">Ejercicio 9:</h3>
+<p>Los pesos de Jhonatan, Rafael y Enrique son 92, 89 y 79kg. Sus tallas son 1.78, 1.91 y 1,69m, respectivamente. Calcular el IMC para cada caso y determinar si alguno tiene sobrepeso (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-10" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-10">Ejercicio 10:</h3>
+<p>Los pesos de Sara, Fiorella y Pamela son 68700, 71400 y 63200g. Sus tallas son 164, 159 y 168cm, respectivamente. Calcular el IMC para cada caso y determinar si alguna presenta sobrepeso (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-11" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-11">Ejercicio 11:</h3>
+<p>A un niño que pesa 15000g y mide 68cm se le indica 15mg/kg de paracetamol V.O. cada 8h. Calcular cuántos mg de paracetamol se le debe administrar al día y determinar si el niño presenta sobrepeso u obesidad. (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+</section>
+<section id="segunda-parte-fundamentos-de-programación-en-r" class="level2">
+<h2 class="anchored" data-anchor-id="segunda-parte-fundamentos-de-programación-en-r">SEGUNDA PARTE: Fundamentos de programación en R</h2>
+<section id="ejercicio-12" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-12">Ejercicio 12:</h3>
+<p>Escriba un subtítulo de cuarto nivel en la siguiente línea que diga: “Subtítulo de cuarto nivel” (Renderizar el código)</p>
+</section>
+<section id="ejercicio-13" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-13">Ejercicio 13:</h3>
+<p>En el siguiente chunk, escriba “Esta línea es un comentario” en la primera línea y “1+1” (ambas sin las comillas) en la segunda, luego comente solo la primera: (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-14" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-14">Ejercicio 14:</h3>
+<p>El siguiente texto debe ser modificado en el editor “visual”. Modifique al azar las palabras poniéndolas en formato negrita, cursiva, subrayado o código:</p>
+<p>La investigación de calidad en salud es indispensable para que un sistema sanitario sea eficiente. Para mejorar la salud pública y comprender los aspectos económicos y la mecánica de los sistemas de salud, se requiere una amplia gama de métodos de investigación y de toma de decisiones basadas en evidencia.</p>
+</section>
+</section>
+<section id="tercera-parte-importar-bases-de-datos-con-rio" class="level2">
+<h2 class="anchored" data-anchor-id="tercera-parte-importar-bases-de-datos-con-rio">TERCERA PARTE: Importar bases de datos con <code>{rio}</code></h2>
+<section id="instalar-y-cargar-paquetes" class="level3">
+<h3 class="anchored" data-anchor-id="instalar-y-cargar-paquetes">Instalar y cargar paquetes</h3>
+<p>Antes de aprender a importar datos en R, debemos instalar y cargar <em>paquetes</em> (conjunto de funciones orientadas a cumplir tareas relacionadas o específicas)</p>
+</section>
+<section id="algunas-recomendaciones-1" class="level3">
+<h3 class="anchored" data-anchor-id="algunas-recomendaciones-1">Algunas recomendaciones:</h3>
+<p>-Para importar correctamente una base de datos, verificar dos aspectos: 1. Su ubicación: ¿en qué carpeta la tenemos guardada? Esto nos permitirá llamarla sin problemas mediante el URL del archivo. Recordar que es recomendable que las bases de datos que vamos a usar se encuentren en la misma carpeta que el proyecto (Rproject).<br>
+2. Su formato: ¿la data es un archivo csv? dta? xlsx? Esto nos permitirá utilizar la función de importación de manera adecuada.</p>
+<p>-Sintaxis de la función <code>import</code> de rio:</p>
+<p><code>nombre -&gt; import("url del archivo. Debe terminar en .extensión")</code></p>
+<p>Ahora sí, practiquemos:</p>
+</section>
+<section id="ejercicio-1-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-1-1">Ejercicio 1</h3>
+<p>Importar la base de datos “data_enaho2017_v2” y guardarla como “data_ejm1”. Renderizar el código.</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-2-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-2-1">Ejercicio 2</h3>
+<p>Importar la base de datos “data_ejm” y guardarla como “data_ejm2”. Renderizar el código.</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-3-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-3-1">Ejercicio 3</h3>
+<p>Importar la base de datos “data_ejercicio” y guardarla como “data_ejm3”. Renderizar el código.</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-4-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-4-1">Ejercicio 4</h3>
+<p>Importar la base de datos “data_SPSS” y guardarla como “data_ejm4”. Renderizar el código.</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-5-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-5-1">Ejercicio 5</h3>
+<p>Exportar con el mismo nombre pero en formato <em>.csv</em>, <em>.sav</em>, <em>.xlsx</em> y <em>.dta</em> todas las bases importadas, respectivamente. Renderizar el código.</p>
+<div class="cell">
+
+</div>
+</section>
+</section>
+<section id="para-la-casa" class="level2">
+<h2 class="anchored" data-anchor-id="para-la-casa">Para la casa:</h2>
+<section id="ejercicio-1-2" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-1-2">Ejercicio 1:</h3>
+<p>Multiplicar 20 por 18 (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-2-2" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-2-2">Ejercicio 2:</h3>
+<p>Sumar 145 más 75 (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-3-2" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-3-2">Ejercicio 3:</h3>
+<p>Dividir 578768 entre 53 (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-4-2" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-4-2">Ejercicio 4:</h3>
+<p>Calcular 75 elevado a 4 (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-5-2" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-5-2">Ejercicio 5:</h3>
+<p>Sumar 4 más 75, al resultado restar 3, luego multiplicar por 12, dividir el resultado entre 4 y elevar a la potencia 2, ¿cuál es el resultado? (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-6-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-6-1">Ejercicio 6:</h3>
+<p>Se cuenta con una botella de cefaclor rotulada con “125 mg/5ml”. Si se debe administrar 60mg, calcular cuántos ml de cefaclor se necesitan (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+<section id="ejercicio-7-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-7-1">Ejercicio 7:</h3>
+<p>A un paciente de 38 años se le administra 1000ml/día de suero glucosado 5%, calcular cuántos mg de glucosa recibe al día (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+</section>
+<section id="reto-de-la-semana" class="level2">
+<h2 class="anchored" data-anchor-id="reto-de-la-semana">Reto de la semana:</h2>
+<p>Se realiza una paracentesis evacuadora a un paciente de 28 años y se le indica albúmina 6g por cada litro de líquido ascítico obtenido. Se obtienen 5 litros de líquido ascítico. Calcular cuántos ml de albúmina deberán administrarse si contamos con frascos de albúmina humana de 20%, cada frasco contiene 50 ml. (Renderizar el código)</p>
+<div class="cell">
+
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

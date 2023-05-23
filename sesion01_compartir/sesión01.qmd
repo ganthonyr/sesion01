@@ -269,7 +269,7 @@ En un estudio médico, se recaudaron datos de pacientes y se recopilaron nombres
 ```
 
 
-## TERCERA PARTE: IMPORTANDO Y EXPORTANDO BASES DE DATOS CON `{rio}`
+## TERCERA PARTE: MPORTANDO Y EXPORTANDO BASES DE DATOS CON `{rio}`
 
 ### Instalar y cargar paquetes
 
