@@ -5,6 +5,7 @@ author: "Anthony Romero"
 output: html_document
 ---
 
+
 ## INTRODUCCIÓN Y RECOMENDACIONES:
 
 En esta primera sesión, revisaremos algunos fundamentos de programación con R y terminaremos aprendiendo a importar y exportar datos *desde* y *a* formato dta, csv y xlsx.
